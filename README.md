@@ -16,5 +16,5 @@ while not even being at the site and display all your open notifications(just co
 As soon as the API expands more functionality will be added!
 
 ####Other info
-I do not own the proxer.me logo. All rights go to the owner and admins oth the website.
+I do not own the proxer.me logo. All rights go to the owner and admins of the website.
 If you disagree with this, please contact me and i will take it out.
