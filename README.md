@@ -1,7 +1,7 @@
 ## Proxer Chrome Extension
 Chrome Extension for the popular German Anime Streaming Site Proxer.me
 
-#### Usage
+#### Installation
 1. Download zip of this repo or clone it
 2. If zipped unpack it
 3. Goto you Chrome into chrome://extensions (the extensions tab)
@@ -18,3 +18,5 @@ As soon as the API expands more functionality will be added!
 ####Other info
 I do not own the proxer.me logo. All rights go to the owner and admins of the website.
 If you disagree with this, please contact me and i will take it out.
+
+Also i'm sorry if there are still JS alerts in there... they are just some debug points i didn't take out before releasing
