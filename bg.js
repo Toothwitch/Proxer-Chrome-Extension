@@ -10,15 +10,13 @@ function checkLogin(){
 	xhr.open("GET", "https://proxer.me/login?format=json&action=login", true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
-			// JSON.parse does not evaluate the attacker's scripts.
 			var resp = JSON.parse(xhr.responseText);
 			if(resp.error == 0){
 				loggedIn = true;
+				getNotifications();
 			}else{
 				loggedIn = false;
-				alert("not logged in....");
 			}
-			
 		}
 	}
 	xhr.send();
@@ -32,7 +30,6 @@ function getNotifications(){
 			if (xhr.readyState == 4) {
 				var resp = xhr.responseText.split('#');
 				if(resp[0]==0){
-					//erfolgreich
 					altPN = resp[1];
 					newPN = resp[2];
 					friends = resp[3];
@@ -50,19 +47,11 @@ function getNotifications(){
 						text: out
 					});
 					chrome.browserAction.setBadgeBackgroundColor({color: "#212121"});
-				}else{
-					//failed
 				}
 			}
 		}
 		xhr.send();
-	}else{
-		//nicht eingeloggt...
 	}
 }
-
-
 checkLogin();
-
-setTimeout(getNotifications, 10000);
 setInterval(getNotifications, 600000);

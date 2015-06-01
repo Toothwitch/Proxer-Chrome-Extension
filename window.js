@@ -21,9 +21,7 @@ document.onkeydown = function(e){
 	if(e.keyCode == 13){
 		if(!background.loggedIn){
 			var username = document.getElementById("username").value;
-			alert(username);
 			var pass = document.getElementById("pass").value;
-			alert(pass);
 			document.getElementById("content").innerHTML = "Processing...";
 			
 			var xhr = new XMLHttpRequest();
@@ -32,8 +30,6 @@ document.onkeydown = function(e){
 				if (xhr.readyState == 4) {
 					// JSON.parse does not evaluate the attacker's scripts.
 					var resp = JSON.parse(xhr.responseText);
-					alert(xhr.responseText);
-					alert(resp.message);
 					if(resp.error == 0){
 						document.getElementById("content").innerHTML = "Willkommen "+username.toString()+"!";
 						background.checkLogin();
