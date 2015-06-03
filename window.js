@@ -2,6 +2,8 @@ var background = chrome.extension.getBackgroundPage();
 chrome.browserAction.setBadgeBackgroundColor({color: "#212121"});
 document.addEventListener('DOMContentLoaded', function() {
 	var content = "";
+	//document.getElementsByTagName("html").style.height = (screen.availHeight / 5);
+	//document.getElementsByTagName("html").style.width = (screen.availWidth / 2);
 	if(background.loggedIn){
 		content = 'Benachrichtigungen:<br>';
 		content += 'AltesPN: '+background.altPN;
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		content += '<br>Freundschaftsanfragen: '+background.friends;
 		content += '<br>News: '+background.news;
 		content += '<br>Sonstiges: '+background.other;
+		content += '<br>Design: '+ background.cookie;
 		document.getElementById("content").innerHTML = content;
 	}else{
 		content = '<input type="text" id="username" placeholder="Nutzername" ></input>';

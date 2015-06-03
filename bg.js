@@ -4,7 +4,10 @@ var newPN = 0;
 var friends = 0;
 var news = 0;
 var other = 0;
-
+var cookie = "";
+chrome.cookies.get({url: "http://proxer.me", name: "style"}, function(data){
+	cookie = data.value;
+});
 function checkLogin(){
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", "https://proxer.me/login?format=json&action=login", true);
@@ -21,6 +24,8 @@ function checkLogin(){
 	}
 	xhr.send();
 }
+
+
 
 function getNotifications(){
 	if(loggedIn == true){

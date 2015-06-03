@@ -3,7 +3,7 @@
 
   "name": "Proxer Chrome Extension",
   "description": "Extension to access Proxer.me from anywhere in your Browser!",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "icons": { "128": "icon.png" },
   
   "browser_action": {
@@ -15,8 +15,9 @@
 	"scripts": ["bg.js"]  
   },
   "permissions": [
-	"https://proxer.me/",
+	"*://*.proxer.me/",
 	"storage",
-	"notifications"
+	"notifications",
+	"cookies"
   ]
 }
