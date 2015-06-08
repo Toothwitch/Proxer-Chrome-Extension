@@ -5,9 +5,17 @@ var friends = 0;
 var news = 0;
 var other = 0;
 var cookie = "";
-chrome.cookies.get({url: "http://proxer.me", name: "style"}, function(data){
-	cookie = data.value;
+var updated = false;
+var popups = chrome.extension.getViews({type: "popup"});
+function updateCookie(){
+	chrome.cookies.get({url: "http://proxer.me", name: "style"}, function(data){
+		cookie = data.value;
+	});
+}
+chrome.cookies.onChanged.addListener(function(){
+	updateCookie();
 });
+updateCookie();
 function checkLogin(){
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", "https://proxer.me/login?format=json&action=login", true);
@@ -24,9 +32,6 @@ function checkLogin(){
 	}
 	xhr.send();
 }
-
-
-
 function getNotifications(){
 	if(loggedIn == true){
 		var xhr = new XMLHttpRequest();
