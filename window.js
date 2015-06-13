@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		content += '<tr><td>Sonstiges:</td><td>'+background.other + '</td></tr></table>';
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
-		document.getElementById("ueberschrift").style.borderBottomStyle = "1px solid " + bordertitle[style];
+		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
 		
 		var links = document.getElementsByName("link");//augenkrebs...
 		for(var i=0;i< links.length; i++){
@@ -64,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			})();
 		}
     }else{
-		content = '<table width="100%" height="100%" class="wrapper"><div class="bigicon"><a href="https://www.proxer.me" target="_blank" style="color:transparent;text-decoation:none;" tabindex="-1"><img src="icon_big.png" height="28" id="pic" width="*" alt=""></a></div><tr id="ueberschrift" width="100%"><td align="center" width="100%" style="padding:1px;"><div class="margin1">Login</div></td></tr><tr class="eingabe" width="100%"><td align="center" width="100%"><div class="margin"><input type="text" id="username" placeholder="Nutzername" tabindex="1"></input><input type="password" id="pass" placeholder="Passwort" tabindex="2"></input></div></td></tr></table>';
+		content = '<table width="100%" height="100%" class="wrapper"><div class="bigicon"><a href="https://www.proxer.me" target="_blank" style="color:transparent;text-decoation:none;" tabindex="-1"><img src="icon_big.png" height="28" id="pic" width="*" alt=""></a></div><tr id="ueberschrift" width="100%"><td align="center" width="100%" style="padding:1px;" id="titlebo" ><div class="margin1">Login</div></td></tr><tr class="eingabe" width="100%"><td align="center" width="100%"><div class="margin"><input type="text" id="username" placeholder="Nutzername" tabindex="1"></input><input type="password" id="pass" placeholder="Passwort" tabindex="2"></input></div></td></tr></table>';
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
-		document.getElementById("ueberschrift").style.borderBottomStyle = "1px solid " + bordertitle[style];
+		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
 		
 	}
 });
