@@ -69,7 +69,7 @@ document.onkeydown = function(e){
 		if(!background.loggedIn){
 			var username = document.getElementById("username").value;
 			var pass = document.getElementById("pass").value;
-			document.getElementById("content").innerHTML = "Processing...</div>";
+			document.getElementById("content").innerHTML = "Processing...";
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "https://proxer.me/login?format=json&action=login", true);
 			xhr.onreadystatechange = function() {
