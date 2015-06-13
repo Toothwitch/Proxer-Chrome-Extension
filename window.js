@@ -30,7 +30,6 @@ function updateColors(){
 	}
 	document.getElementsByTagName("html")[0].style.background = backgrounds[style];
 	document.getElementsByTagName("html")[0].style.color = colors[style];
-	document.getElementById("ueberschrift").style.background = bgtitle[style];
 }
 document.addEventListener('DOMContentLoaded', function() {
 	var content = "";
@@ -48,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		content += '<tr><td><a href="https://proxer.me/news" style="text-decoration: none;" name="link">News:</a></td><td>'+background.news + '</td></tr>';
 		content += '<tr><td>Sonstiges:</td><td>'+background.other + '</td></tr></table>';
 		document.getElementById("content").innerHTML = content;
+		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		var links = document.getElementsByName("link");//augenkrebs...
 		for(var i=0;i< links.length; i++){
 			links[i].style.color = colors[style];
@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }else{
 		content = '<table width="100%" height="100%" class="wrapper"><div class="bigicon"><a href="https://www.proxer.me" target="_blank" style="color:transparent;text-decoation:none;" tabindex="-1"><img src="icon_big.png" height="28" id="pic" width="*" alt=""></a></div><tr id="ueberschrift" width="100%"><td align="center" width="100%" style="padding:1px;"><div class="margin1">Login</div></td></tr><tr class="eingabe" width="100%"><td align="center" width="100%"><div class="margin"><input type="text" id="username" placeholder="Nutzername" tabindex="1"></input><input type="password" id="pass" placeholder="Passwort" tabindex="2"></input></div></td></tr></table>';
 		document.getElementById("content").innerHTML = content;
+		document.getElementById("ueberschrift").style.background = bgtitle[style];
+		
 	}
 });
 document.onkeydown = function(e){
