@@ -1,6 +1,7 @@
 var background = chrome.extension.getBackgroundPage();
 var backgrounds = ["#5E5E5E", "#000","#F3FBFF", "#7EC9DA"];
-var colors = ["#CCCCCC", "#D8DBD6","#000", "#404040"];
+var colors = ["white", "white","white", "white"];
+var bgtitle = ["#777777", "black", "#02476E", "#436D82"];
 var style = 0;
 chrome.browserAction.setBadgeBackgroundColor({color: "#212121"});
 window.onload = function() {
@@ -29,6 +30,7 @@ function updateColors(){
 	}
 	document.getElementsByTagName("html")[0].style.background = backgrounds[style];
 	document.getElementsByTagName("html")[0].style.color = colors[style];
+	document.getElementById("ueberschrift").style.background = bgtitle[style];
 }
 document.addEventListener('DOMContentLoaded', function() {
 	var content = "";
@@ -58,8 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			})();
 		}
     }else{
-		content = '<table width="100%" height="100%"><tr height="100%"><td align="center">Login</td></tr><tr height="100%"><td align="center"><input type="text" id="username" placeholder="Nutzername" ></input></td></tr>';
-		content += '<tr height="100%"><td align="center"><input type="password" id="pass" placeholder="Passwort"></input></td></tr></table>';
+		content = '<table width="100%" height="100%" class="wrapper"><div class="bigicon"><a href="https://www.proxer.me" target="_blank" style="color:transparent;text-decoation:none;" tabindex="-1"><img src="icon_big.png" height="28" id="pic" width="*" alt=""></a></div><tr id="ueberschrift" width="100%"><td align="center" width="100%" style="padding:1px;"><div class="margin1">Login</div></td></tr><tr class="eingabe" width="100%"><td align="center" width="100%"><div class="margin"><input type="text" id="username" placeholder="Nutzername" tabindex="1"></input><input type="password" id="pass" placeholder="Passwort" tabindex="2"></input></div></td></tr></table>';
 		document.getElementById("content").innerHTML = content;
 	}
 });
@@ -68,7 +69,7 @@ document.onkeydown = function(e){
 		if(!background.loggedIn){
 			var username = document.getElementById("username").value;
 			var pass = document.getElementById("pass").value;
-			document.getElementById("content").innerHTML = "Processing...";
+			document.getElementById("content").innerHTML = "Processing...</div>";
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "https://proxer.me/login?format=json&action=login", true);
 			xhr.onreadystatechange = function() {
