@@ -3,7 +3,7 @@ var backgrounds = ["#5E5E5E", "#000","#F3FBFF", "#7EC9DA"];
 var colors = ["white", "white","#02476E", "white"];
 var bgtitle = ["#777777", "black", "#02476E", "#436D82"];
 var bordertitle = ["#777", "white", "#02476E", "#436D82"];
-var textshadow = ["0 1px 2px rgba(0, 0, 0, 0.3)", "0 1px 2px rgba(0, 0, 0, 0.3)", "0 0px 0px rgba(0, 0, 0, 0)", "0 1px 2px rgba(0, 0, 0, 0.3)"]
+var textshadow = ["0 1px 2px rgba(0, 0, 0, 0.5)", "0 1px 2px rgba(0, 0, 0, 0.5)", "0 0px 0px rgba(0, 0, 0, 0)", "0 1px 2px rgba(0, 0, 0, 0.5)"]
 
 var style = 0;
 chrome.browserAction.setBadgeBackgroundColor({color: "#212121"});
