@@ -88,7 +88,7 @@ document.onkeydown = function(e){
 						document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;margin-bottom:30px;" id="bgtitle"><tr><td style="font-size:17pt;text-align:center;margin-top:30px;"><div id="shadow" style="margin-bottom:18px;font-family:Noto Sans;;line-height:1.1">Willkommen<br><span style="font-weight:bold;font-size:19pt;">'+username.toString()+'!</span></div></td></tr></table><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Bitte schlie&szlig;e das Fenster um fortzufahren!</div>';
 						background.checkLogin()
 					}else{
-						document.getElementById("content").innerHTML = '<div style="position:absolute;left:0;right:0;top:0;bottom:0;text-align:center;box-shadow:0 0 7px black inset"><div style="font-size:22pt;margin-top:35px;padding:5px;border-left:0;border-right:0;">Fehler</div><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Ein Fehler ist aufgetreten!<br>Bitte versuche es noch einmal.</div></div>';
+						document.getElementById("content").innerHTML = '<div style="position:absolute;left:0;right:0;top:0;bottom:0;text-align:center;"><div style="font-size:22pt;margin-top:35px;padding:5px;border-left:0;border-right:0;">Fehler</div><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Ein Fehler ist aufgetreten!<br>Bitte versuche es noch einmal.</div></div>';
 					}
 				}
 			}
