@@ -43,12 +43,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	updateColors();
 	
 	if(background.loggedIn){
-		content = '<table width="100%" height="100%"><tr><td colspan="2" align="center">Benachrichtigungen:</td></tr>';
-		content += '<tr><td>AltesPN:</td><td>'+background.altPN + '</td></tr>';
-		content += '<tr><td><a href="https://proxer.me/messages" style="text-decoration: none;" name="link">NeuesPN:</a></td><td>'+background.newPN + '</td></tr>';
-		content += '<tr><td><a href="https://proxer.me/user/my/connections" style="text-decoration: none;" name="link">Freundschaftsanfragen:</a></td><td>'+background.friends + '</td></tr>';
-		content += '<tr><td><a href="https://proxer.me/news" style="text-decoration: none;" name="link">News:</a></td><td>'+background.news + '</td></tr>';
-		content += '<tr><td>Sonstiges:</td><td>'+background.other + '</td></tr></table>';
+		content = '<table width="100%" height="100%" style="overflow:scroll;max-height: 142.6px;font-size:12pt"><tr id="ueberschrift" style="font-size:15pt" ><td colspan="2" id="titlebo" align="center" style="padding:7px 5px;color:white">Benachrichtigungen</td></tr>';
+		content += '<tr style="border:1px solid grey;"><td style="padding:6px 5px;"><div style="padding:1px 10px 1px;"><div style="width:90%;float:left">AltesPN:</div><div style="float:right;">'+background.altPN + '</div></div>';
+		content += '<div style="padding:1px 10px 1px;"><div style="width:90%;float:left"><a href="https://proxer.me/messages" style="text-decoration: none;" name="link">NeuesPN:</a></div><div style="float:right;">'+background.newPN + '</div></div>';
+		content += '<div style="padding:1px 10px 1px;"><div style="width:90%;float:left"><a href="https://proxer.me/user/my/connections" style="text-decoration: none;" name="link">Freundschaftsanfragen:</a></div><div style="float:right;">'+background.friends + '</div></div>';
+		content += '<div style="padding:1px 10px 1px;"><div style="width:90%;float:left"><a href="https://proxer.me/news" style="text-decoration: none;" name="link">News:</a></div><div style="float:right;">'+background.news + '</div></div>';
+		content += '<div style="padding:1px 10px 1px;"><div style="width:90%;float:left">Sonstiges:</div><div style="float:right;">'+background.other + '</div></div></tr></table>';
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
@@ -87,8 +87,10 @@ document.onkeydown = function(e){
 					if(resp.error == 0){
 						document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;margin-bottom:30px;" id="bgtitle"><tr><td style="font-size:17pt;text-align:center;margin-top:30px;"><div id="shadow" style="margin-bottom:18px;font-family:Noto Sans;;line-height:1.1">Willkommen<br><span style="font-weight:bold;font-size:19pt;">'+username.toString()+'!</span></div></td></tr></table><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Bitte schlie&szlig;e das Fenster um fortzufahren!</div>';
 						background.checkLogin()
+						document.getElementById("shadow").style.textShadow = textshadow[style];
 					}else{
 						document.getElementById("content").innerHTML = '<div style="position:absolute;left:0;right:0;top:0;bottom:0;text-align:center;"><div style="font-size:22pt;margin-top:35px;padding:5px;border-left:0;border-right:0;">Fehler</div><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Ein Fehler ist aufgetreten!<br>Bitte versuche es noch einmal.</div></div>';
+						document.getElementById("shadow").style.textShadow = textshadow[style];
 					}
 				}
 			}
