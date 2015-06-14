@@ -1,8 +1,9 @@
 var background = chrome.extension.getBackgroundPage();
 var backgrounds = ["#5E5E5E", "#000","#F3FBFF", "#7EC9DA"];
-var colors = ["white", "white","black", "white"];
+var colors = ["white", "white","#02476E", "white"];
 var bgtitle = ["#777777", "black", "#02476E", "#436D82"];
 var bordertitle = ["#777", "white", "#02476E", "#436D82"];
+var textshadow = ["0 1px 2px rgba(0, 0, 0, 0.3)", "0 1px 2px rgba(0, 0, 0, 0.3)", "0 0px 0px rgba(0, 0, 0, 0)", "0 1px 2px rgba(0, 0, 0, 0.3)"]
 
 var style = 0;
 chrome.browserAction.setBadgeBackgroundColor({color: "#212121"});
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
+		document.getElementById("shadow").style.textShadow = textshadow[style];
 		
 		var links = document.getElementsByName("link");//augenkrebs...
 		for(var i=0;i< links.length; i++){
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottom = "1px solid " + bordertitle[style];
-		
+		document.getElementById("shadow").style.textShadow = textshadow[style];
 	}
 });
 document.onkeydown = function(e){
@@ -76,17 +78,17 @@ document.onkeydown = function(e){
 		if(!background.loggedIn){
 			var username = document.getElementById("username").value;
 			var pass = document.getElementById("pass").value;
-			document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:15px;">Processing ...</div></td></tr></table>';
+			document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:13px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03)">Processing ...</div></td></tr></table>';
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "https://proxer.me/login?format=json&action=login", true);
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4) {
 					var resp = JSON.parse(xhr.responseText);
 					if(resp.error == 0){
-						document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;margin-bottom:30px" id="bgtitle"><tr><td style="font-size:19pt;text-align:center;margin-top:30px;"><div style="margin-bottom:15px">Willkommen,<br><span style="font-weight:bold;font-size:22pt;">'+username.toString()+'!</span></div></td></tr></table><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Bitte schlie&szlig;e das Fenster um fortzufahren!</div>';
+						document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;margin-bottom:30px;" id="bgtitle"><tr><td style="font-size:17pt;text-align:center;margin-top:30px;"><div id="shadow" style="margin-bottom:18px;font-family:Noto Sans;;line-height:1.1">Willkommen<br><span style="font-weight:bold;font-size:19pt;">'+username.toString()+'!</span></div></td></tr></table><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Bitte schlie&szlig;e das Fenster um fortzufahren!</div>';
 						background.checkLogin()
 					}else{
-						document.getElementById("content").innerHTML = '<div style="position:absolute;left:0;right:0;top:0;bottom:0;text-align:center;"><div style="font-size:22pt;margin-top:35px;padding:5px;border-left:0;border-right:0;">Fehler</div><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Ein Fehler ist aufgetreten!<br>Bitte versuche es noch einmal.</div></div>';
+						document.getElementById("content").innerHTML = '<div style="position:absolute;left:0;right:0;top:0;bottom:0;text-align:center;box-shadow:0 0 7px black inset"><div style="font-size:22pt;margin-top:35px;padding:5px;border-left:0;border-right:0;">Fehler</div><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Ein Fehler ist aufgetreten!<br>Bitte versuche es noch einmal.</div></div>';
 					}
 				}
 			}
