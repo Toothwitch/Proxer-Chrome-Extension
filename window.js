@@ -78,7 +78,7 @@ document.onkeydown = function(e){
 		if(!background.loggedIn){
 			var username = document.getElementById("username").value;
 			var pass = document.getElementById("pass").value;
-			document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:13px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03)">Processing ...</div></td></tr></table>';
+			document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:13px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03)">Processing&nbsp;&nbsp;</div></td></tr></table><table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;padding:2px 4px 0 0;margin:0px auto 0;border-radius:10px;width:75%;"><img src="loading.gif" height="22" style="float:right;margin-right:13px;"></div></td></tr></table>';
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "https://proxer.me/login?format=json&action=login", true);
 			xhr.onreadystatechange = function() {
