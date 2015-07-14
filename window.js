@@ -33,6 +33,7 @@ function updateColors(){
 	}
 	document.getElementsByTagName("html")[0].style.background = backgrounds[style];
 	document.getElementsByTagName("html")[0].style.color = colors[style];
+
 }
 document.addEventListener('DOMContentLoaded', function() {
 	var content = "";
@@ -43,12 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	updateColors();
 	
 	if(background.loggedIn){
-		content = '<table width="100%" height="100%" style="overflow:scroll;max-height: 142.6px;font-size:12pt"><tr id="ueberschrift" style="font-size:15pt" ><td colspan="2" id="titlebo" align="center" style="padding:7px 5px;color:white">Benachrichtigungen</td></tr>';
-		content += '<tr style="border:1px solid grey;"><td style="padding:6px 5px;"><div style="padding:1px 10px 1px;"><div style="width:90%;float:left">AltesPN:</div><div style="float:right;">'+background.altPN + '</div></div>';
-		content += '<div style="padding:1px 10px 1px;"><div style="width:90%;float:left"><a href="https://proxer.me/messages" style="text-decoration: none;" name="link">NeuesPN:</a></div><div style="float:right;">'+background.newPN + '</div></div>';
-		content += '<div style="padding:1px 10px 1px;"><div style="width:90%;float:left"><a href="https://proxer.me/user/my/connections" style="text-decoration: none;" name="link">Freundschaftsanfragen:</a></div><div style="float:right;">'+background.friends + '</div></div>';
-		content += '<div style="padding:1px 10px 1px;"><div style="width:90%;float:left"><a href="https://proxer.me/news" style="text-decoration: none;" name="link">News:</a></div><div style="float:right;">'+background.news + '</div></div>';
-		content += '<div style="padding:1px 10px 1px;"><div style="width:90%;float:left">Sonstiges:</div><div style="float:right;">'+background.other + '</div></div></tr></table>';
+		content = '<div class="benwrapper" height="100%" width="100%"><div id="titlebo"><div id="ueberschrift" class="ueber"><div style="width:100%;height:100%">Benachrichtungen</div></div></div>';
+		content += '<div class="contentwrapper"><div class="nachrichtwrapper" id="hervor"><div class="nachrichttitle">PN alt</div><div class="nachrichtzahl" id="nzahl">'+background.altPN + '</div></div>';
+		content += '<div class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/messages" target="_blank" name="link" tabindex="-1"><div class="nachrichtlinktitle" id="nlink">PN neu</div><div class="nachrichtzahl" id="nzahl">'+background.newPN + '</div></a></div>';
+		content += '<div style="width:74px !important;margin-right:0px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/news#top" name="link" tabindex="-1" target="_blank"><div class="nachrichtlinktitle" id="nlink">News</div><div class="nachrichtzahl" id="nzahl">'+background.news + '</div></a></div>';
+		content += '<div style="width:178px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/user/my/connections" name="link" tabindex="-1" target="_blank"><div style="padding:4px 0px 3px;" class="nachrichtlinktitle" id="nlink">Freundschaftsanfragen</div><div class="nachrichtzahl" id="nzahl">'+background.friends + '</div></a></div>';
+		content += '<div style="width:74px;margin-right:0;" class="nachrichtwrapper"><div style="padding:4px 0px 3px" class="nachrichttitle">Sonstiges</div><div class="nachrichtzahl" id="nzahl">'+background.other + '</div></div></div></div>';
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
@@ -85,7 +86,7 @@ document.onkeydown = function(e){
 				if (xhr.readyState == 4) {
 					var resp = JSON.parse(xhr.responseText);
 					if(resp.error == 0){
-						document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;margin-bottom:30px;" id="bgtitle"><tr><td style="font-size:17pt;text-align:center;margin-top:30px;"><div id="shadow" style="margin-bottom:18px;font-family:Noto Sans;;line-height:1.1">Willkommen<br><span style="font-weight:bold;font-size:19pt;">'+username.toString()+'!</span></div></td></tr></table><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Bitte schlie&szlig;e das Fenster um fortzufahren!</div>';
+						document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;margin-bottom:30px;" id="bgtitle"><tr><td style="font-size:17pt;text-align:center;margin-top:30px;"><div id="shadow" style="margin-bottom:18px;font-family:Noto Sans;line-height:1.1">Willkommen<br><span style="font-weight:bold;font-size:19pt;">'+username.toString()+'!</span></div></td></tr></table><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Bitte schlie&szlig;e das Fenster um fortzufahren!</div>';
 						background.checkLogin()
 						document.getElementById("shadow").style.textShadow = textshadow[style];
 					}else{
