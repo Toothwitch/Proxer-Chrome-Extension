@@ -22,7 +22,7 @@ function checkLogin(){
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
 			var resp = JSON.parse(xhr.responseText);
-			if(resp.error == 0){
+			if(resp.error == 0 || (resp.error == 1 && resp.code != 1)){
 				loggedIn = true;
 				getNotifications();
 			}else{
