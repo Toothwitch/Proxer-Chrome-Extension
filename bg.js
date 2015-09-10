@@ -1,4 +1,5 @@
 var loggedIn = false;
+var rape = "lol";
 var altPN = 0;
 var newPN = 0;
 var friends = 0;
@@ -22,7 +23,7 @@ function checkLogin(){
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
 			var resp = JSON.parse(xhr.responseText);
-			if(resp.error == 0 || (resp.error == 1 && (resp.code != 1 || resp.code != 2)){//benötigt optimierung nach tests... 
+			if(resp.error == 0 || (resp.error == 1 && resp.code === undefined)){//benötigt optimierung nach tests... 
 				loggedIn = true;
 				getNotifications();
 			}else{

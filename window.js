@@ -1,4 +1,4 @@
-var background = chrome.extension.getBackgroundPage();
+var backgroundscript = chrome.extension.getBackgroundPage();
 var backgrounds = ["#5E5E5E", "#000","#F3FBFF", "#7EC9DA"];
 var colors = ["white", "white","#02476E", "white"];
 var bgtitle = ["#777777", "black", "#02476E", "#436D82"];
@@ -13,7 +13,7 @@ window.onload = function() {
 function updateColors(){
 	console.log("happened");
 	style = 0;
-		switch(background.cookie){
+		switch(backgroundscript.cookie){
 			case "grey":
 				style = 0;
 				break;
@@ -43,13 +43,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementsByTagName("body")[0].style.width = (screen.availWidth / 5)+ "px";
 	updateColors();
 	
-	if(background.loggedIn){
+	if(backgroundscript.loggedIn){
 		content = '<div class="benwrapper" height="100%" width="100%"><div id="titlebo"><div id="ueberschrift" class="ueber"><div style="width:100%;height:100%">Benachrichtungen</div></div></div>';
-		content += '<div class="contentwrapper"><div class="nachrichtwrapper" id="hervor"><div class="nachrichttitle">PN alt</div><div class="nachrichtzahl" id="nzahl">'+background.altPN + '</div></div>';
-		content += '<div class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/messages" target="_blank" name="link" tabindex="-1"><div class="nachrichtlinktitle" id="nlink">PN neu</div><div class="nachrichtzahl" id="nzahl">'+background.newPN + '</div></a></div>';
-		content += '<div style="width:74px !important;margin-right:0px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/news#top" name="link" tabindex="-1" target="_blank"><div class="nachrichtlinktitle" id="nlink">News</div><div class="nachrichtzahl" id="nzahl">'+background.news + '</div></a></div>';
-		content += '<div style="width:178px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/user/my/connections" name="link" tabindex="-1" target="_blank"><div style="padding:4px 0px 3px;" class="nachrichtlinktitle" id="nlink">Freundschaftsanfragen</div><div class="nachrichtzahl" id="nzahl">'+background.friends + '</div></a></div>';
-		content += '<div style="width:74px;margin-right:0;" class="nachrichtwrapper"><div style="padding:4px 0px 3px" class="nachrichttitle">Sonstiges</div><div class="nachrichtzahl" id="nzahl">'+background.other + '</div></div></div></div>';
+		content += '<div class="contentwrapper"><div class="nachrichtwrapper" id="hervor"><div class="nachrichttitle">PN alt</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.altPN + '</div></div>';
+		content += '<div class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/messages" target="_blank" name="link" tabindex="-1"><div class="nachrichtlinktitle" id="nlink">PN neu</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.newPN + '</div></a></div>';
+		content += '<div style="width:74px !important;margin-right:0px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/news#top" name="link" tabindex="-1" target="_blank"><div class="nachrichtlinktitle" id="nlink">News</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.news + '</div></a></div>';
+		content += '<div style="width:178px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/user/my/connections" name="link" tabindex="-1" target="_blank"><div style="padding:4px 0px 3px;" class="nachrichtlinktitle" id="nlink">Freundschaftsanfragen</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.friends + '</div></a></div>';
+		content += '<div style="width:74px;margin-right:0;" class="nachrichtwrapper"><div style="padding:4px 0px 3px" class="nachrichttitle">Sonstiges</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.other + '</div></div></div></div>';
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.onkeydown = function(e){
 	if(e.keyCode == 13){
-		if(!background.loggedIn){
+		if(!backgroundscript.loggedIn){
 			var username = document.getElementById("username").value;
 			var pass = document.getElementById("pass").value;
 			document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:13px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03)">Processing&nbsp;&nbsp;</div></td></tr></table><table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;padding:2px 4px 0 0;margin:0px auto 0;border-radius:10px;width:75%;"><img src="loading.gif" height="22" style="float:right;margin-right:13px;"></div></td></tr></table>';
@@ -85,9 +85,9 @@ document.onkeydown = function(e){
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4) {
 					var resp = JSON.parse(xhr.responseText);
-					if(resp.error == 0){
+					if(resp.error == 0 || (resp.error == 1 && resp.code === undefined)){//){
 						document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;margin-bottom:30px;" id="bgtitle"><tr><td style="font-size:17pt;text-align:center;margin-top:30px;"><div id="shadow" style="margin-bottom:18px;font-family:Noto Sans;line-height:1.1">Willkommen<br><span style="font-weight:bold;font-size:19pt;">'+username.toString()+'!</span></div></td></tr></table><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Bitte schlie&szlig;e das Fenster um fortzufahren!</div>';
-						background.checkLogin()
+						backgroundscript.checkLogin()
 						document.getElementById("shadow").style.textShadow = textshadow[style];
 					}else{
 						document.getElementById("content").innerHTML = '<div style="position:absolute;left:0;right:0;top:0;bottom:0;text-align:center;"><div style="font-size:22pt;margin-top:35px;padding:5px;border-left:0;border-right:0;">Fehler</div><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Ein Fehler ist aufgetreten!<br>Bitte versuche es noch einmal.</div></div>';
