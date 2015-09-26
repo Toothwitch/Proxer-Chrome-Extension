@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	if(backgroundscript.loggedIn){
 		content = '<div class="benwrapper" height="100%" width="100%"><div id="titlebo"><div id="ueberschrift" class="ueber"><div style="width:100%;height:100%">Benachrichtungen</div></div></div>';
-		content += '<div class="contentwrapper"><div class="nachrichtwrapper" id="hervor"><div class="nachrichttitle">PN alt</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.altPN + '</div></div>';
-		content += '<div class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/messages" target="_blank" name="link" tabindex="-1"><div class="nachrichtlinktitle" id="nlink">PN neu</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.newPN + '</div></a></div>';
-		content += '<div style="width:74px !important;margin-right:0px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/news#top" name="link" tabindex="-1" target="_blank"><div class="nachrichtlinktitle" id="nlink">News</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.news + '</div></a></div>';
-		content += '<div style="width:178px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/user/my/connections" name="link" tabindex="-1" target="_blank"><div style="padding:4px 0px 3px;" class="nachrichtlinktitle" id="nlink">Freundschaftsanfragen</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.friends + '</div></a></div>';
-		content += '<div style="width:74px;margin-right:0;" class="nachrichtwrapper"><div style="padding:4px 0px 3px" class="nachrichttitle">Sonstiges</div><div class="nachrichtzahl" id="nzahl">'+backgroundscript.other + '</div></div></div></div>';
+		content += '<div class="contentwrapper"><div class="nachrichtwrapper" id="hervor"><div class="nachrichttitle">PN alt</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.altPN + '</div></div>';
+		content += '<div class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/messages" target="_blank" name="link" tabindex="-1"><div class="nachrichtlinktitle" id="nlink">PN neu</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.newPN + '</div></a></div>';
+		content += '<div style="width:74px !important;margin-right:0px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/news#top" name="link" tabindex="-1" target="_blank"><div class="nachrichtlinktitle" id="nlink">News</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.news + '</div></a></div>';
+		content += '<div style="width:178px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/user/my/connections" name="link" tabindex="-1" target="_blank"><div style="padding:4px 0px 3px;" class="nachrichtlinktitle" id="nlink">Freundschaftsanfragen</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.friends + '</div></a></div>';
+		content += '<div style="width:74px;margin-right:0;" class="nachrichtwrapper"><div style="padding:4px 0px 3px" class="nachrichttitle">Sonstiges</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.other + '</div></div></div></div>';
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
