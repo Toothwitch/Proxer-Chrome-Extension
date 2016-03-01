@@ -1,11 +1,11 @@
 var loggedIn = false;
-var rape = "lol";
 var altPN = 0;
 var newPN = 0;
 var friends = 0;
 var news = 0;
 var other = 0;
 var cookie = "";
+var notify = 0;
 var updated = false;
 var popups = chrome.extension.getViews({type: "popup"});
 function updateCookie(){
@@ -46,6 +46,15 @@ function getNotifications(){
 					friends = resp[3];
 					news = resp[4];
 					other = resp[5];
+					if(notify < parseInt(other)){
+						var noti = new Notification("Proxer Notifications", {body: "Neue Proxer Notifications!"});
+						console.log("new noti");
+						setTimeout(function(){
+							noti.close;
+							console.log("noti closed");
+						}, 3000);
+					}
+					notify = parseInt(other);
 					var count = 0;
 					count += parseInt(altPN);
 					count+= parseInt(newPN);

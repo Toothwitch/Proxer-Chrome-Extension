@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Proxer Chrome Extension",
   "description": "Extension to access Proxer.me notifications from anywhere in your Browser!",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Toothwitch, Sadeiko",
   "icons": { "128": "icon.png" },
   "browser_action": {
@@ -16,6 +16,7 @@
   "permissions": [
 	"*://*.proxer.me/",
 	"cookies",
-	"tabs"
+	"tabs",
+	"notifications"
   ]
 }
