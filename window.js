@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	if(backgroundscript.loggedIn){
 		content = '<div class="benwrapper" height="100%" width="100%"><div id="titlebo"><div id="ueberschrift" class="ueber"><div style="width:100%;height:100%">Benachrichtungen</div></div></div>';
-		content += '<div class="contentwrapper"><div class="nachrichtwrapper" id="hervor"><div class="nachrichttitle">PN alt</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.altPN + '</div></div>';
+		content += '<div class="contentwrapper"><div class="nachrichtwrapper" id="hervor"><div class="nachrichttitle" id="test1">PN alt</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.altPN + '</div></div>';
 		content += '<div class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/messages" target="_blank" name="link" tabindex="-1"><div class="nachrichtlinktitle" name="nlink">PN neu</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.newPN + '</div></a></div>';
 		content += '<div style="width:74px !important;margin-right:0px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/news#top" name="link" tabindex="-1" target="_blank"><div class="nachrichtlinktitle" name="nlink">News</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.news + '</div></a></div>';
 		content += '<div style="width:178px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/user/my/connections" name="link" tabindex="-1" target="_blank"><div style="padding:4px 0px 3px;" class="nachrichtlinktitle" name="nlink">Freundschaftsanfragen</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.friends + '</div></a></div>';
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
-		document.getElementById("shadow").style.textShadow = textshadow[style];
+		//document.getElementById("shadow").style.textShadow = textshadow[style];
 		
 		var links = document.getElementsByName("link");//augenkrebs...
 		for(var i=0;i< links.length; i++){
@@ -66,6 +66,37 @@ document.addEventListener('DOMContentLoaded', function() {
 				};
 			})();
 		}
+		var counter = document.getElementsByName("nzahl");
+		for(var i=0;i< counter.length; i++){
+			(function () {
+				var ct = counter[i];
+				ct.style.background = "Pink";
+			})();
+		}
+		
+		
+		
+		//Resizing funktionalität... hier muss noch sehr stark aufgeräumt werden(nur testzwecke)
+		document.getElementById('test1').onmousedown = function(ev) {			
+			var self = this;
+			ev = ev || event;
+			var startX = 0;
+			var startY = 0;
+			this.startX = ev.pageX;
+			this.startY = ev.pageY;
+			document.onmousemove = function(e) {
+				e = e || event;
+				document.getElementsByTagName("html")[0].style.width = (parseInt(document.getElementsByTagName("html")[0].style.width.replace('px',''))+(self.startX - e.pageX)).toString()+'px';
+				document.getElementsByTagName("html")[0].style.height = (parseInt(document.getElementsByTagName("html")[0].style.height.replace('px',''))-(self.startY - e.pageY)).toString()+'px';
+				document.getElementsByTagName("body")[0].style.width = document.getElementsByTagName("html")[0].style.width;
+				document.getElementsByTagName("body")[0].style.height = document.getElementsByTagName("html")[0].style.height;
+			}
+			this.onmouseup = function() {
+				document.onmousemove = null;
+			}
+		}
+		document.getElementById('test1').ondragstart = function() { return false }
+		
     }else{
 		content = '<table width="100%" height="100%" class="wrapper"><div class="bigicon"><a href="https://www.proxer.me" target="_blank" style="color:transparent;text-decoation:none;" tabindex="-1"><img src="icon_big.png" height="28" id="pic" width="*" alt=""></a></div><tr id="ueberschrift" width="100%"><td align="center" width="100%" style="padding:1px;color:white;" id="titlebo" ><div class="margin1">Login</div></td></tr><tr class="eingabe" width="100%"><td align="center" width="100%"><div class="margin"><input type="text" id="username" placeholder="Nutzername" tabindex="1"></input><input type="password" id="pass" placeholder="Passwort" tabindex="2"></input></div></td></tr></table>';
 		document.getElementById("content").innerHTML = content;
@@ -74,6 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById("shadow").style.textShadow = textshadow[style];
 	}
 });
+
+
+
 document.onkeydown = function(e){
 	if(e.keyCode == 13){
 		if(!backgroundscript.loggedIn){
