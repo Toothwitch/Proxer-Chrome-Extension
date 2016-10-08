@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+#content{width:100% !important;height:100% !important}
+			*{padding:0;margin:0;}
+body{width:100%;height:100%;font-family:Arial;}
+html{height:100%;width:100%}
+a{color:transparent;text-decoration:none;height:100%;width:100%;display:block;}
+
+#application_wrapper{height:100%;width:100%;}
+#screen_upperpart{height:34%;width:100%;text-align:center;}
+#screen_underpart{height:66%;width:100%;text-align:center;}
+#screen_ueberschrift{font-family:Tahoma;border-bottom:1px solid white;font-size:76px;letter-spacing:1px;}
+
+.screen_tile{width:33%;height:50%;border:1px solid transparent;z-index:auto;background-color:rgba(255, 255, 255, 0.9);}
+.screen_tile:hover{border:1px solid white;transition:0.2s;box-shadow:0 2px 14px black}
+.screen_tile:active{opacity:0.5;box-shadow:0 0 5px black;transition:0.1s}
+
+#tile1{box-sizing:border-box;}
+#tile2{box-sizing:border-box;}
+#tile3{box-sizing:border-box;}
+
+#tile4{width:66%;}
+#tile6{}
+
+.screen_inner_up{width:100%;height:52%;border-bottom:1px solid black;font-size:55px;color:black}
+.screen_inner_down{width:100%;height:48%;font-size:69px;color:black}
+
+#tile4_inner_up{color:white;}
+#tile3_inner_up{color:white;}
+#tile2_inner_up{color:white;}
+
+#Logowrapper{position:absolute;left:12%;width:10%;height:31%;top:1%}
+#Logo{width:90%;height:auto;margin-top:5px;}
+.login{width:57%;height:75px;padding:2px 8px;background-color:white;border:1px solid grey;font-size:37px;box-shadow:0px 0px 2px black;}
+#benu{margin-bottom:45px;}
+
+#Issue{color:white;font-size:95px;font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif}
+.undertale{position:absolute;left:0;right:0;bottom:0;background-color:white;padding:15px;font-size:28px;box-shadow: 0 0 2px black;color:black}
+#welcome{color:white;margin-bottom:7px;font-family:Noto Sans;font-size:65px;}
+#welcome_id{color:white;font-size:78px;font-weight:bold}
+
+.loading{text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:33px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03);font-size:62px;}
+
+#loading_wrapper{position:absolute;right:14%;top:0;bottom:0;height:100%;margin-top:1px;}
+#loading_img{float:right;margin-right:13px;height:60px}
+
+@media all and (min-width: 1300px){
+#Logowrapper{width:9%;}
+#Logo{height:90%}
+.login{height:95px}
+#benu{margin-bottom:75px;}
+#screen_ueberschrift{font-size:100px}
+.screen_inner_up{font-size:75px;}
+.screen_inner_down{font-size:89px;}
+#Issue{font-size:139px}
+.undertale{font-size:38px}
+#welcome{font-size:95px;}
+#welcome_id{font-size:110px;}
+
+.loading{text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:33px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03);font-size:70px;}
+
+#loading_wrapper{position:absolute;right:14%;top:0;bottom:0;height:100%;margin-top:2px;}
+#loading_img{float:right;margin-right:13px;height:68px}
+}
+
+
+@media all and (max-width: 1300px){
+.screen_inner_up{font-size:53px;}
+.screen_inner_down{font-size:66px;}
+#screen_ueberschrift{font-size:80px;}
+.undertale{font-size:22px}
+
+
+}
+
+@media all and (max-width: 1032px){
+.screen_inner_up{font-size:41px;}
+.screen_inner_down{font-size:56px;}
+#screen_ueberschrift{font-size:63px;}
+.login{height:70px;font-size:35px;}
+#benu{margin-bottom:40px;}
+.undertale{font-size:21px}
+#welcome{font-size:55px;}
+#welcome_id{font-size:65px;}
+
+.loading{text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:30px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03);font-size:50px;}
+
+#loading_wrapper{position:absolute;right:14%;top:0;bottom:0;height:100%;margin-top:2px;}
+#loading_img{float:right;margin-right:13px;height:45px}
+}
+
+@media all and (max-width: 832px){
+.screen_inner_up{font-size:34px;}
+.screen_inner_down{font-size:48px;}
+#screen_ueberschrift{font-size:50px;}
+#Logowrapper{width:12%}
+.login{height:60px;font-size:30px;}
+#benu{margin-bottom:30px;}
+#Issue{font-size:75px;}
+.undertale{font-size:18px}
+#welcome{font-size:40px;line-height:1.1}
+#welcome_id{font-size:50px;}
+
+.loading{text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:26px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03);font-size:40px;}
+
+#loading_wrapper{position:absolute;right:14%;top:0;bottom:0;height:100%;margin-top:2px;}
+#loading_img{float:right;margin-right:13px;height:40px}
+}
+
+@media all and (max-width: 632px){
+.screen_inner_up{font-size:28px;}
+.screen_inner_down{font-size:40px;}
+#screen_ueberschrift{font-size:48px;}
+.login{height:50px;font-size:27px;}
+#benu{margin-bottom:30px;}
+#Issue{font-size:65px;}
+.undertale{font-size:16px}
+#welcome{font-size:35px;margin-bottom:0px;}
+#welcome_id{font-size:45px;}
+
+.loading{text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:23px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03);font-size:32px;}
+
+#loading_wrapper{position:absolute;right:14%;top:0;bottom:0;height:100%;margin-top:2px;}
+#loading_img{float:right;margin-right:13px;height:34px}
+}
+
+@media all and (max-width: 532px){
+.screen_inner_up{font-size:28px;}
+.screen_inner_down{font-size:34px;}
+#screen_ueberschrift{font-size:42px;}
+.login{height:40px;font-size:24px;box-shadow:0px 1px 2px rgba(0, 0, 0, 0.1);}
+#benu{margin-bottom:25px;}
+#Issue{font-size:58px;}
+.undertale{font-size:15px}
+#welcome{font-size:33px;margin-bottom:0px;}
+#welcome_id{font-size:40px;}
+
+.loading{text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:20px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03);font-size:28px;}
+
+#loading_wrapper{position:absolute;right:14%;top:0;bottom:0;height:100%;margin-top:2px;}
+#loading_img{float:right;margin-right:13px;height:30px}
+}
+
+@media all and (max-width: 472px){
+.screen_inner_up{font-size:23px;}
+.screen_inner_down{font-size:28px;}
+#screen_ueberschrift{font-size:33px;}
+.screen_tile{border:0}
+.screen_tile:hover{box-shadow:0 0 6px black}
+#tile1{border-bottom:0px solid black;border-right:0px solid black;}
+#tile2{border-bottom:0px solid black;border-right:0px solid black;}
+#tile3{border-bottom:0px solid black;}
+#tile4{border-right:0px solid black;}
+.login{height:30px;font-size:16px;}
+#benu{margin-bottom:20px;}
+#Issue{font-size:55px;}
+.undertale{font-size:15px;padding:10px}
+#welcome{font-size:30px;margin-bottom:0px;}
+#welcome_id{font-size:38px;}
+
+.loading{text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:17px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03);font-size:25px;}
+
+#loading_wrapper{position:absolute;right:14%;top:0;bottom:0;height:100%;margin-top:2px;}
+#loading_img{float:right;margin-right:13px;height:28px}
+}
+
+@media all and (max-width: 402px){
+.screen_inner_up{font-size:21px;}
+.screen_inner_down{font-size:23px;}
+#screen_ueberschrift{font-size:28px;}
+.login{height:24px;font-size:13px;}
+#benu{margin-bottom:5px;}
+#Issue{font-size:45px;}
+.undertale{font-size:14px;padding:7px}
+#welcome{font-size:25px;margin-bottom:0px;}
+#welcome_id{font-size:30px;}
+
+.loading{text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:13px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03);font-size:20px;}
+
+#loading_wrapper{position:absolute;right:12%;top:0;bottom:0;height:100%;margin-top:1px;}
+#loading_img{float:right;margin-right:13px;height:22px}
+}
+
+@media all and (max-width: 352px){
+.screen_inner_up{font-size:19px;}
+.screen_inner_down{font-size:22px;}
+#screen_ueberschrift{font-size:23px;}
+#Issue{font-size:40px;}
+.undertale{font-size:14px;padding:7px}
+#loading_img{height:22px;}
+.loading{padding:13px 0;}
+}
+
+@media all and (min-width: 1532px){
+body{font-size:66px}
+}
+
+

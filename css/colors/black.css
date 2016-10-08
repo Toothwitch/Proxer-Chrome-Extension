@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#application_wrapper{background-color:black;color:#D8DBD6;}
+#screen_upperpart{background-color:#9010DB;}
+#screen_underpart{}
+#screen_ueberschrift{background-color:black;color:white;}
+
+.screen_tile{background-color:rgba(255, 255, 255, 0.9);}
+#tile2_inner_up{background-color:#8A0E0E;color:white;}
+#tile3_inner_up{background-color:#8A0E0E;color:white;}
+#tile4_inner_up{background-color:#8A0E0E;color:white;}
+

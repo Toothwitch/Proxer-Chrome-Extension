@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#application_wrapper{background-color:#7EC9DA;color:#404040;}
+
+#screen_upperpart{background-color:#9010DB;}
+#screen_underpart{}
+#screen_ueberschrift{background-color:#7EC9DA;color:white;}
+
+.screen_tile{background-color:rgba(255, 255, 255, 0.9);}
+#tile2_inner_up{background-color:#3399CC;color:white;}
+#tile3_inner_up{background-color:#3399CC;color:white;}
+#tile4_inner_up{background-color:#3399CC;color:white;}
+
+#Issue{text-shadow:1px 1px 5px black;}
+
+#welcome{text-shadow:1px 1px 5px black;}
+#welcome_id{text-shadow:1px 1px 5px black;}
+
+@media all and (max-width: 1032px){
+#Issue{text-shadow:1px 1px 3px black;}
+
+#welcome{text-shadow:1px 1px 3px black;}
+#welcome_id{text-shadow:1px 1px 3px black;}
+
+}
