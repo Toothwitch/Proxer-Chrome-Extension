@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	updateColors();
 	
 	if(backgroundscript.loggedIn){
-		content = '<div class="benwrapper" height="100%" width="100%"><div id="titlebo"><div id="ueberschrift" class="ueber"><div style="width:100%;height:100%">Benachrichtungen</div></div></div>';
-		content += '<div class="contentwrapper"><div class="nachrichtwrapper" id="hervor"><div class="nachrichttitle" id="test1">PN alt</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.altPN + '</div></div>';
-		content += '<div class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/messages" target="_blank" name="link" tabindex="-1"><div class="nachrichtlinktitle" name="nlink">PN neu</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.newPN + '</div></a></div>';
-		content += '<div style="width:74px !important;margin-right:0px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/news#top" name="link" tabindex="-1" target="_blank"><div class="nachrichtlinktitle" name="nlink">News</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.news + '</div></a></div>';
-		content += '<div style="width:178px;" class="nachrichtwrapper" id="hervor"><a href="https://proxer.me/user/my/connections" name="link" tabindex="-1" target="_blank"><div style="padding:4px 0px 3px;" class="nachrichtlinktitle" name="nlink">Freundschaftsanfragen</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.friends + '</div></a></div>';
-		content += '<div style="width:74px;margin-right:0;" class="nachrichtwrapper"><div style="padding:4px 0px 3px" class="nachrichttitle">Sonstiges</div><div class="nachrichtzahl" name="nzahl">'+backgroundscript.other + '</div></div></div></div>';
+		content = '<div id="application_wrapper"><table id="screen_upperpart" cellspacing="0" cellpadding="0"><tr><td id="screen_ueberschrift">Benachrichtigungen</td></tr></table>';
+		content += '<table id="screen_underpart" cellpadding="0" cellspacing="0"><tr><td><table height="100%" width="100%" cellpadding="0" cellspacing="3" border="0" style="border-color:black;border-top:0;"><tr><td class="screen_tile" id="tile1"><table cellpadding="0" cellspacing="0" height="100%" width="100%"><tr><td class="screen_inner_up" id="tile1_inner_up">PN alt</td></tr><tr><td class="screen_inner_down" id="tile1_inner_down">'+backgroundscript.altPN + '</td></tr></table></td>';
+		content += '<td class="screen_tile" id="tile2"><a href="http://www.proxer.me/messages"><table cellpadding="0" cellspacing="0" height="100%" width="100%"><tr><td class="screen_inner_up" id="tile2_inner_up">PN neu</td></tr><tr><td class="screen_inner_down" id="tile2_inner_down">'+backgroundscript.newPN + '</td></tr></table></a></td>';
+		content += '<td class="screen_tile" id="tile3" width="*"><a href="https://proxer.me/news#top"><table cellpadding="0" cellspacing="0" height="100%" width="100%"><tr><td class="screen_inner_up" id="tile3_inner_up">News</td></tr><tr><td class="screen_inner_down" id="tile3_inner_down">'+backgroundscript.news + '</td></tr></table></a></td></tr>';
+		content += '<tr><td class="screen_tile" id="tile4" colspan="2"><a href="https://proxer.me/user/my/connections"><table cellpadding="0" cellspacing="0" height="100%" width="100%"><tr><td class="screen_inner_up" id="tile4_inner_up">Freundschaftsanfragen</td></tr><tr><td class="screen_inner_down" id="tile4_inner_down">'+backgroundscript.friends + '</td></tr></table></a></td>';
+		content += '<td class="screen_tile" id="tile6" width="*"><table cellpadding="0" cellspacing="0" height="100%" width="100%"><tr><td class="screen_inner_up" id="tile6_inner_up">Sonstiges</td></tr><tr><td class="screen_inner_down" id="tile6_inner_down">'+backgroundscript.other + '</td></tr></table></td></tr></table></td></tr></table>';
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottomStyle = "1px solid " + bordertitle[style];
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById('test1').ondragstart = function() { return false }
 		
     }else{
-		content = '<table width="100%" height="100%" class="wrapper"><div class="bigicon"><a href="https://www.proxer.me" target="_blank" style="color:transparent;text-decoation:none;" tabindex="-1"><img src="icon_big.png" height="28" id="pic" width="*" alt=""></a></div><tr id="ueberschrift" width="100%"><td align="center" width="100%" style="padding:1px;color:white;" id="titlebo" ><div class="margin1">Login</div></td></tr><tr class="eingabe" width="100%"><td align="center" width="100%"><div class="margin"><input type="text" id="username" placeholder="Nutzername" tabindex="1"></input><input type="password" id="pass" placeholder="Passwort" tabindex="2"></input></div></td></tr></table>';
+		content = '<div id="application_wrapper"><table id="screen_upperpart" cellspacing="0" cellpadding="0"><tr><td id="screen_ueberschrift"><table id="Logowrapper" cellpadding="0" cellspacing="0"><tr><td><div id="Logo"><a href="https://www.proxer.me/" target="_blank" title="Zu Proxer.me!" style="width:100%;height:100%"><img height="*" width="100%" alt="Proxer.me" src="Logo1.png"></a></div></td></tr></table><span id="Hello">Login</span></td></tr></table><table id="screen_underpart" cellpadding="0" cellspacing="0"><tr><td><input class="login" type="text" tabindex="1" id="benu" placeholder="Nutzername"><input class="login" type="password" tabindex="2" id="pass" placeholder="Passwort"></td></tr></table></div>';
 		document.getElementById("content").innerHTML = content;
 		document.getElementById("ueberschrift").style.background = bgtitle[style];
 		document.getElementById("titlebo").style.borderBottom = "1px solid " + bordertitle[style];
@@ -113,18 +113,18 @@ document.onkeydown = function(e){
 		if(!backgroundscript.loggedIn){
 			var username = document.getElementById("username").value;
 			var pass = document.getElementById("pass").value;
-			document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;background-color:rgba(255, 255, 255, 0.84);color:black;padding:13px 0;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);margin:2px auto 0;border-radius:10px;width:75%;border-top:1px solid rgba(0, 0, 0, 0.03)">Processing&nbsp;&nbsp;</div></td></tr></table><table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;"><tr><td><div  style="text-align:center;padding:2px 4px 0 0;margin:0px auto 0;border-radius:10px;width:75%;"><img src="loading.gif" height="22" style="float:right;margin-right:13px;"></div></td></tr></table>';
+			document.getElementById("content").innerHTML = '<div id="application_wrapper"><table id="screen_underpart" cellpadding="0" cellspacing="0" style="height:100%"><tr><td><div class="loading">Processing</div><table id="loading_wrapper"><tr><td><img src="loading.gif" alt="loading_img" id="loading_img"></td></tr></table></td></tr></table></div>';
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "https://proxer.me/login?format=json&action=login", true);
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4) {
 					var resp = JSON.parse(xhr.responseText);
 					if(resp.error == 0 || (resp.error == 1 && resp.code === undefined)){//){
-						document.getElementById("content").innerHTML = '<table style="position:absolute;left:0;right:0;top:0;bottom:0;height:100%;width:100%;margin-bottom:30px;" id="bgtitle"><tr><td style="font-size:17pt;text-align:center;margin-top:30px;"><div id="shadow" style="margin-bottom:18px;font-family:Noto Sans;line-height:1.1">Willkommen<br><span style="font-weight:bold;font-size:19pt;">'+username.toString()+'!</span></div></td></tr></table><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Bitte schlie&szlig;e das Fenster um fortzufahren!</div>';
+						document.getElementById("content").innerHTML = '<div id="application_wrapper"><table id="screen_underpart" cellpadding="0" cellspacing="0" style="height:82%"><tr><td><div id="welcome">Willkommen</div><div id="welcome_id">'+username.toString()+'!</div><div class="undertale">Schlie&szlig;e kurz das Fenster um fortzufahren</div></td></tr></table></div>';
 						backgroundscript.checkLogin()
 						document.getElementById("shadow").style.textShadow = textshadow[style];
 					}else{
-						document.getElementById("content").innerHTML = '<div style="position:absolute;left:0;right:0;top:0;bottom:0;text-align:center;"><div style="font-size:22pt;margin-top:35px;padding:5px;border-left:0;border-right:0;">Fehler</div><div style="position:absolute;bottom:0;left:0;right:0;color:black;text-align:center;padding:5px;font-size:9pt;background-color:white;box-shadow: 0 0 2px black">Ein Fehler ist aufgetreten!<br>Bitte versuche es noch einmal.</div></div>';
+						document.getElementById("content").innerHTML = '<div id="application_wrapper"><table id="screen_underpart" cellpadding="0" cellspacing="0" style="height:82%"><tr><td><div id="Issue">Error</div><div class="undertale">Ein Fehler ist aufgetreten!<br>Bitte versuche es noch einmal.</div></td></tr></table></div>';
 						document.getElementById("shadow").style.textShadow = textshadow[style];
 					}
 				}
